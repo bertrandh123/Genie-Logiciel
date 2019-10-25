@@ -1,0 +1,43 @@
+<form name="mon-formulaire1" action="page-envoi.html" method="get">
+<p>
+   Path to the database :<br />
+   <input type="text" name="path" value="" />
+</p>
+
+<p>
+   Test size (between 0 and 1), except if you want to do cross-validation :<br />
+   <input type="text" name="path" value="" />
+</p>
+
+<p>
+   If you want to perform cross-validation, select the number of partitions :<br />
+   <input type="text" name="path" value="" />
+</p>
+
+<p>
+   Which algorithm do you want to perform ?<br />
+   <select name="algo">
+      <option value="tree">Decision tree</option>
+      <option value="svm" selected="selected">Suport vector machine</option>
+      <option value="knn">K nearest neighbors</option>
+   </select>
+</p>
+
+<p>
+   Name of the dependent variable :<br />
+   <input type="text" name="path" value="" />
+</p>
+
+<p>
+   Which score do you want?<br />
+   <input type="checkbox" name="interet" value="loc" /> Accuracy
+   <input type="checkbox" name="interet" value="achat" /> Recall score
+   <input type="checkbox" name="interet" value="achat" /> Log-loss
+</p>
+
+<p>
+   <input type="submit" value="Perform" /> 
+   <input type="reset" value="Cancel" />
+</p>
+
+</form>
