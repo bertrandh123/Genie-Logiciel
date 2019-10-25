@@ -1,0 +1,4 @@
+import_csv(”C://foot.csv”,”meilleur joueur”,cross_validation=8)
+# cross_validation indique le nombre de partitions que l’on souhaite réaliser
+generate_knn
+score(accuracy)
