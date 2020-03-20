@@ -1,0 +1,149 @@
+<meta charset="UTF-8">
+<html>
+<head>
+<style type="text/css">
+body {
+background-color: powderblue;
+background-repeat: no-repeat;
+background-position:center top;
+}
+#conteneur { overflow: hidden; }
+#conteneur div { margin:5px;width:30%;float:left; }
+
+</style>
+</head>
+<title>B2BTesting</title>
+
+<body onload="debut();">
+
+<FORM Method="POST" Action="/accueil" enctype="multipart/form-data">
+<p>
+
+<input type="file" name ="file" required><BR>
+Variable to explain <input type="text" name ="variabley" required>
+<BR>
+
+<div id="conteneur">
+    <div>
+
+<h1>Algo 1</h1>
+
+Library : <SELECT name="lib1" size="1"> <OPTION>Weka <OPTION>Scikit <OPTION>Renjin </SELECT><BR>
+
+Method : <SELECT name="method1" size="1" id="method1" onchange="tree1();"> <OPTION>SVM <OPTION>Random forest <OPTION>CART </SELECT><BR>
+
+
+<input type="number" name ="pctapp1" required> % train / test<BR>
+<input type="number" name ="param1" id="param1"> number of trees<BR>
+
+    </div>
+
+
+    <div>
+
+<h1>Algo 2 <input type="checkbox" name ="algo2" id="algo2" onClick="required2();"> </h1>
+
+Library : <SELECT name="lib2" size="1" id = "lib2"> <OPTION> <OPTION>Weka <OPTION>Scikit <OPTION>Renjin </SELECT><BR>
+
+Method : <SELECT name="method2" size="1" id = "method2" onchange="tree2();"> <OPTION> <OPTION>SVM <OPTION>Random forest <OPTION>CART </SELECT><BR>
+
+
+<input type="number" name ="pctapp2" id = "pctapp2"> % train / test<BR>
+<input type="number" name ="param2" id="param2"> number of trees<BR>
+
+
+    </div>
+
+    <div>
+
+
+<h1>Algo 3 <input type="checkbox" name ="algo3" id="algo3" onClick="required3();"></h1>
+
+Library : <SELECT name="lib3" size="1" id="lib3"> <OPTION> <OPTION>Weka <OPTION>Scikit <OPTION>Renjin </SELECT><BR>
+
+Method : <SELECT name="method3" size="1" id="method3" onchange="tree3();"> <OPTION> <OPTION>SVM <OPTION>Random forest <OPTION>CART </SELECT><BR>
+
+
+<input type="number" name ="pctapp3" id="pctapp3"> % train / test<BR>
+<input type="number" name ="param3" id="param3"> number of trees<BR>
+    </div>
+
+    </div>
+
+<INPUT type="submit" value="Send">
+</p>
+</FORM>
+
+<script>
+function required2(){
+	if(document.getElementById("algo2").checked==true){
+		document.getElementById("lib2").required = true;
+		document.getElementById("method2").required = true;
+		document.getElementById("pctapp2").required = true;
+		if(document.getElementById("method2").value=="Random forest"){
+			document.getElementById("param2").required = true;
+		}
+	}else{
+		document.getElementById("lib2").required = false;
+		document.getElementById("method2").required = false;
+		document.getElementById("pctapp2").required = false;
+		document.getElementById("param2").required = false;
+	}
+}
+
+function required3(){
+	if(document.getElementById("algo3").checked==true){
+		document.getElementById("lib3").required = true;
+		document.getElementById("method3").required = true;
+		document.getElementById("pctapp3").required = true;
+		if(document.getElementById("method3").value=="Random forest"){
+			document.getElementById("param3").required = true;
+		}
+	}else{
+		document.getElementById("lib3").required = false;
+		document.getElementById("method3").required = false;
+		document.getElementById("pctapp3").required = false;
+		document.getElementById("param3").required = false;
+	}
+}
+
+function debut(){
+	tree1();
+	tree2();
+	required2();
+	tree3();
+	required3();
+}
+
+
+function tree1(){
+	if(document.getElementById("method1").value=="Random forest"){
+		document.getElementById("param1").required = true;
+	}else{
+		document.getElementById("param1").required = false;
+	}
+}
+
+function tree2(){
+	if(document.getElementById("algo2").checked==true){
+		if(document.getElementById("method2").value=="Random forest"){
+			document.getElementById("param2").required = true;
+		}else{
+			document.getElementById("param2").required = false;
+		}
+	}
+}
+
+function tree3(){
+	if(document.getElementById("algo3").checked==true){
+		if(document.getElementById("method3").value=="Random forest"){
+			document.getElementById("param3").required = true;
+		}else{
+			document.getElementById("param3").required = false;
+		}
+	}
+}
+</script>
+
+</body>
+</html>
